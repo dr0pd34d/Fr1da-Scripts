@@ -1,9 +1,9 @@
 Java.perform(function () {
 	// Get a class handler of the Base64 class
 	// https://developer.android.com/reference/android/util/Base64
-	const DBRunner = Java.use('android.util.Base64');
+	const base64 = Java.use('android.util.Base64');
 	// Overload the method "encodeToString" to capture the input parameters
-	DBRunner.encodeToString.overload('[B','int').implementation = function (input, flags) {
+	base64.encodeToString.overload('[B','int').implementation = function (input, flags) {
 		// Log the successful hook to fridas console
 		console.log('[+] new Base64 operation found!');
 		// Log the Base64 input to the console after converting it to a string
